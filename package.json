@@ -1,0 +1,11 @@
+{
+  "name":"3nity",
+  "version":"0.0.1",
+  "description":"Virtual Online Classroom",
+  "private":"true",
+  "dependencies":{
+  	"node-static":"latest",
+    "socket.io":"latest",
+    "express":"latest"
+  }
+}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>3nity | Online Education never been so better</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/join.css" rel="stylesheet" type="text/css">
+    <link href="assets/font/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/lib/adapter.js"></script>
+</head>
+
+<body>
+<div id="site-overlay"></div>
+<div id="header" >
+    <div id="login-toggle">
+        <span id="login">Log In</span>
+    </div>
+    <a id="logo" href="index.html">
+        <img src="assets/image/logo.png" class="logo" alt=""/>
+    </a>
+    <a href="#sidebar-wrapper" id="sidebar-toggle">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </a>
+</div>
+<div id="login-wrapper">
+    <form id="login-form" method="get" action=""#">
+    <input type="text" placeholder="&nbsp;&nbsp;Enter Username" id="username"/>
+    <input type="password" placeholder="&nbsp;&nbsp;Enter Password" id="password" />
+    <input type="submit" value="Login" id="logbutton" />
+    </form>
+    <span>
+        New User? <a href="#">Sign Up</a>
+    </span>
+</div>
+<div id="side-wrapper">
+    <ul id="side-menu">
+        <li><a href="index.html" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-home fa-fw"></i>&nbsp;&nbsp; Home</a></li>
+        <li><a href="course.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa  fa-graduation-cap fa-fw"></i>&nbsp;&nbsp;Our Courses</a></li>
+        <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Timings</a></li>
+        <li><a href="join.html" class="active-menu">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-plus-circle fa-fw"></i>&nbsp;&nbsp;Join Room</a></li>
+        <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-heart fa-fw"></i>&nbsp;&nbsp;Why us ?</a></li>
+        <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Meet Our Faculties</a></li>
+        <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope fa-fw"></i>&nbsp;&nbsp;Contact Us</a></li>
+    </ul>
+</div>
+<div id="join-wrapper">
+    <div id="video-wrapper" class="video-container">
+        <video id="webcam" autoplay="autoplay" controls="controls">
+
+        </video>
+    </div>
+    <div id="chat-wrapper">
+        <div id="chat-box"></div>
+        <div id="send-box">
+            <form id="send_message">
+                <textarea id="message" placeholder="Shoot Your Doubts..."></textarea>
+                <input type="submit" id="send" value="SEND"/>
+             </form>
+        </div>
+     </div>
+</div>
+
+<script type="application/javascript">
+    function rot(){
+        document.getElementById('side-wrapper').classList.toggle('active');
+        document.getElementById('sidebar-toggle').classList.toggle('active');
+        document.getElementById('join-wrapper').classList.toggle('active');
+        document.getElementById('site-overlay').classList.toggle('active');
+    }
+    function logUnreveal(){
+        document.getElementById('login-wrapper').classList.toggle('active');
+        document.getElementById('login-toggle').classList.toggle('active');
+        document.getElementById('site-overlay').classList.toggle('active');
+    }
+    document.querySelector('#sidebar-toggle').addEventListener('click',rot);
+    document.querySelector('#login-toggle').addEventListener('click',logUnreveal);
+</script>
+<script src="js/webrtc.js"></script>
+<script src="js/jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    jQuery(function($){
+        var socket;
+        socket = io.connect();
+        var $messageForm = $('#send_message');
+        var $messageBox = $('#message');
+        var $chat = $('#chat-box');
+
+        $messageForm.submit(function(e){
+            e.preventDefault();
+            socket.emit('Send message',$messageBox.val());
+            $messageBox.val(' ');
+            console.log("Message sent to server ");
+        });
+
+        socket.on('New message',function(data){
+            $chat.append('<div class="bubble-left">'+data + '</div>');
+        });
+    });
+</script>
+</body>
+</html>
