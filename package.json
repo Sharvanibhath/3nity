@@ -3,6 +3,13 @@
   "version":"0.0.1",
   "description":"Virtual Online Classroom",
   "private":"true",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veerajDPoojary/3nity"
+  },
+  "bugs": {
+    "url": "https://github.com/veerajDPoojary/3nity/issues"
+  },
   "dependencies":{
   	"node-static":"latest",
     "socket.io":"latest",
