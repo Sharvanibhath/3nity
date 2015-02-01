@@ -241,7 +241,9 @@ textarea:focus::-moz-placeholder { color:transparent; }
 	font-weight:bold;
 	font-size:17px;
 	border-bottom: 1px solid #0D202B;
-
+}
+#side-menu i{
+	padding: 0px 5px 0px 10px;
 }
 .active-menu {
 	background-color: #ED2F35;

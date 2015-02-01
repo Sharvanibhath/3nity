@@ -34,13 +34,13 @@
 </div>
 <div id="side-wrapper">
     <ul id="side-menu">
-        <li><a href="index.html" class="active-menu">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-home fa-fw"></i>&nbsp;&nbsp; Home</a></li>
-        <li><a href="course.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa  fa-graduation-cap fa-fw"></i>&nbsp;&nbsp;Our Courses</a></li>
-        <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Timings</a></li>
-        <li><a href="join.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-plus-circle fa-fw"></i>&nbsp;&nbsp;Join Room</a></li>
-        <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-heart fa-fw"></i>&nbsp;&nbsp;Why us ?</a></li>
-        <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Meet Our Faculties</a></li>
-        <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope fa-fw"></i>&nbsp;&nbsp;Contact Us</a></li>
+        <li><a href="index.html"  class="active-menu" ><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li><a href="course.html"><i class="fa  fa-graduation-cap fa-fw"></i>Our Courses</a></li>
+        <li><a href="#"><i class="fa fa-users fa-fw"></i>Timings</a></li>
+        <li><a href="join.html"><i class="fa fa-plus-circle fa-fw"></i>Join Room</a></li>
+        <li><a href="#"><i class="fa fa-heart fa-fw"></i>Why us ?</a></li>
+        <li><a href="#"><i class="fa fa-users fa-fw"></i>Meet Our Faculties</a></li>
+        <li><a href="#"><i class="fa fa-envelope fa-fw"></i>Contact Us</a></li>
     </ul>
 </div>
 <div id="main-wrapper">
@@ -60,22 +60,7 @@
         </div>
     </div>
 </div>
-
-<script type="application/javascript">
-    function rot(){
-        document.getElementById('side-wrapper').classList.toggle('active');
-        document.getElementById('sidebar-toggle').classList.toggle('active');
-        document.getElementById('main-wrapper').classList.toggle('active');
-        document.getElementById('site-overlay').classList.toggle('active');
-    }
-    function logUnreveal(){
-        document.getElementById('login-wrapper').classList.toggle('active');
-        document.getElementById('login-toggle').classList.toggle('active');
-        document.getElementById('site-overlay').classList.toggle('active');
-    }
-    document.querySelector('#sidebar-toggle').addEventListener('click',rot);
-    document.querySelector('#login-toggle').addEventListener('click',logUnreveal);
-
-</script>
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
